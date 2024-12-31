@@ -8,6 +8,7 @@
         body {
             margin: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -80,29 +81,28 @@
 
         /* Confetti styles */
         .confetti {
-    position: fixed; /* Ensure it covers the entire screen */
-    top: -50px; /* Start just above the viewport */
-    left: var(--x); /* Random horizontal position */
-    width: 10px;
-    height: 20px;
-    background: var(--color);
-    opacity: 0.9;
-    transform: rotate(var(--rotation));
-    animation: fallConfetti var(--duration) ease-in-out;
-    z-index: 1; /* Ensure it's above the envelope and message */
-}
+            position: fixed; /* Ensure it covers the entire screen */
+            top: -50px; /* Start just above the viewport */
+            left: var(--x); /* Random horizontal position */
+            width: 10px;
+            height: 20px;
+            background: var(--color);
+            opacity: 0.9;
+            transform: rotate(var(--rotation));
+            animation: fallConfetti var(--duration) ease-in-out;
+            z-index: 1; /* Ensure it's above the envelope and message */
+        }
 
-@keyframes fallConfetti {
-    0% {
-        transform: translateY(0) rotate(var(--rotation));
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(100vh) rotate(var(--rotation)); /* Fall to the bottom of the viewport */
-        opacity: 0;
-    }
-}
-
+        @keyframes fallConfetti {
+            0% {
+                transform: translateY(0) rotate(var(--rotation));
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(var(--rotation)); /* Fall to the bottom of the viewport */
+                opacity: 0;
+            }
+        }
 
         /* Fireworks styles */
         .fireworks {
@@ -140,7 +140,7 @@
         <div class="body"></div>
         <div class="seal"></div>
     </div>
-    <div class="message" id="message">🎉 Happy New Year 2025! 🎆</div>
+    <div class="message" id="message">🎉 Happy New Year 2025 Bestie! 🎆</div>
     <div class="fireworks" id="fireworks"></div>
 
     <script>
@@ -180,31 +180,31 @@
         }
 
         function startConfetti() {
-    for (let i = 0; i < 100; i++) {
-        const confetti = document.createElement('div');
-        confetti.className = 'confetti';
-        document.body.appendChild(confetti);
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                document.body.appendChild(confetti);
 
-        // Randomize confetti properties
-        const colors = ['#f94144', '#f3722c', '#f8961e', '#f9c74f', '#90be6d', '#43aa8b', '#577590'];
-        const color = colors[Math.floor(Math.random() * colors.length)];
+                // Randomize confetti properties
+                const colors = ['#f94144', '#f3722c', '#f8961e', '#f9c74f', '#90be6d', '#43aa8b', '#577590'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
 
-        const x = Math.random() * 100 + 'vw'; // Random horizontal position across the viewport
-        const duration = Math.random() * 2 + 3 + 's'; // Random fall duration between 3-5s
-        const rotation = Math.random() * 360 + 'deg'; // Random rotation angle
+                const x = Math.random() * 100 + 'vw'; // Random horizontal position across the viewport
+                const duration = Math.random() * 2 + 3 + 's'; // Random fall duration between 3-5s
+                const rotation = Math.random() * 360 + 'deg'; // Random rotation angle
 
-        // Apply styles to the confetti
-        confetti.style.setProperty('--color', color);
-        confetti.style.setProperty('--x', x);
-        confetti.style.setProperty('--rotation', rotation);
-        confetti.style.setProperty('--duration', duration);
+                // Apply styles to the confetti
+                confetti.style.setProperty('--color', color);
+                confetti.style.setProperty('--x', x);
+                confetti.style.setProperty('--rotation', rotation);
+                confetti.style.setProperty('--duration', duration);
 
-        // Automatically remove confetti after animation
-        setTimeout(() => {
-            confetti.remove();
-        }, 5000);
-    }
-}
+                // Automatically remove confetti after animation
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
 
     </script>
 </body>
