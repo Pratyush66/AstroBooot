@@ -1,11 +1,10 @@
 from flask import Flask, render_template, request, jsonify
 from openai import OpenAI
-import os
 
 app = Flask(__name__)
 
 # OpenAI client setup
-token = os.environ.get("token")
+token = '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'
 endpoint = "https://models.inference.ai.azure.com"
 model_name = "gpt-4o"
 
