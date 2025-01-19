@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kundali Analysis Platform</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Kundali</h1>
+            <form id="kundaliForm">
+                <div class="input-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Gender</label>
+                    <div class="gender-options">
+                        <label class="radio-container">
+                            <input type="radio" name="gender" value="male" required>
+                            <span class="radio-custom"></span>
+                            Male
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="gender" value="female" required>
+                            <span class="radio-custom"></span>
+                            Female
+                        </label>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+
+                <div class="input-group time-group">
+                    <label for="time">Time of Birth</label>
+                    <div class="time-container">
+                        <input type="time" id="time" name="time" required>
+                        <div class="ampm-toggle">
+                            <label class="radio-container">
+                                <input type="radio" name="ampm" value="am" required>
+                                <span class="radio-custom"></span>
+                                AM
+                            </label>
+                            <label class="radio-container">
+                                <input type="radio" name="ampm" value="pm" required>
+                                <span class="radio-custom"></span>
+                                PM
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="city">City of Birth</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="state">State</label>
+                    <input type="text" id="state" name="state" required>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="submit-btn">Generate Kundali</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Result Modal -->
+    <div class="result-modal" id="resultModal" style="display:none;">
+        <div style="position:absolute;" class="modal-content">
+            <div class="modal-header">
+                <h2>Your Kundali Analysis</h2>
+                <button style="border-radius: 100%;" class="close-modal" id="closeModal">×</button>
+            </div>
+            <div style="align-items: center;" class="modal-body" id="resultContent">
+                <!-- Kundali result will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/script.js"></script>
+</body>
+</html>
