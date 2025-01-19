@@ -1,0 +1,395 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    background: url('https://img.freepik.com/free-photo/pisces-sign-constellation-astrology-concept_23-2149327760.jpg?t=st=1737221718~exp=1737225318~hmac=f0d57f4e0b3bf782afb83af4de26ce2fe87d64e1f87a669d1be8ee7b65145515&w=1060') center;
+    color: #fefefe;
+    position: relative;
+    overflow-x: hidden;
+
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(11, 11, 42, 0.8), rgba(26, 26, 74, 0.8));
+    z-index: 0;
+}
+
+/* Stars Background Animation */
+
+/* Container Styles */
+.container {
+    max-width: 1200px;
+
+    margin: 2rem auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+    opacity: 0.8;
+    border: 0.2px rgba(rgb(128, 156, 247), rgb(84, 148, 232), rgb(98, 98, 203), alpha)
+    }
+
+.form-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow:
+        0 0 20px rgba(15, 148, 243, 0.798),
+        inset 0 0 100px rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(40, 5, 244, 0.995);
+    animation: containerGlow 3s infinite alternate;
+}
+
+@keyframes containerGlow {
+    0% {
+        box-shadow:
+            0 0 20px rgba(0, 0, 0, 0.3),
+            inset 0 0 100px rgba(255, 255, 255, 0.1);
+    }
+    100% {
+        box-shadow:
+            0 0 30px rgba(123, 47, 247, 0.3),
+            inset 0 0 150px rgba(247, 47, 147, 0.1);
+    }
+}
+
+/* Form Elements */
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #fff;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #7b2ff7;
+    box-shadow: 0 0 10px rgba(123, 47, 247, 0.3);
+}
+
+/* Gender Radio Buttons */
+.gender-options {
+    display: flex;
+    gap: 2rem;
+}
+
+.radio-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.radio-custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.radio-container input {
+    display: none;
+}
+
+.radio-container input:checked + .radio-custom::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background: #7b2ff7;
+    border-radius: 50%;
+    animation: radioCheck 0.3s ease;
+}
+
+@keyframes radioCheck {
+    0% { transform: translate(-50%, -50%) scale(0); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Time Input Group */
+.time-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.ampm-toggle {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Button Styles */
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.submit-btn,
+.chat-btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn {
+    background: linear-gradient(45deg, #7b2ff7, #f72f93);
+    color: #fff;
+    flex: 2;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 60%);
+    transform: rotate(0deg);
+    animation: buttonShine 3s infinite;
+}
+
+@keyframes buttonShine {
+    0% { transform: rotate(0deg) translateX(-100%); }
+    50% { transform: rotate(25deg) translateX(100%); }
+    100% { transform: rotate(0deg) translateX(-100%); }
+}
+
+.chat-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    flex: 1;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Loading Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 11, 42, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.zodiac-loader {
+    text-align: center;
+}
+
+.zodiac-spinner {
+    width: 100px;
+    height: 100px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-left-color: #7b2ff7;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Chat Container */
+.chat-container {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background: rgba(20, 20, 50, 0.95);
+    backdrop-filter: blur(20px);
+    transition: right 0.3s ease;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-container.active {
+    right: 0;
+}
+
+.chat-header {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-chat {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.message {
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    border-radius: 8px;
+    max-width: 80%;
+}
+
+.message.bot {
+    background: rgba(123, 47, 247, 0.2);
+    margin-right: auto;
+}
+
+.message.user {
+    background: rgba(247, 47, 147, 0.2);
+    margin-left: auto;
+}
+
+.chat-input {
+    padding: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* Result Modal */
+.result-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 11, 42, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: rgba(20, 20, 50, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header,
+.modal-footer {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.download-btn {
+    background: #7b2ff7;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background: #6620d0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .form-container {
+        padding: 1.5rem;
+    }
+
+    .chat-container {
+        width: 100%;
+        right: -100%;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .submit-btn,
+    .chat-btn {
+        width: 100%;
+    }
+}
