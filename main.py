@@ -4,7 +4,7 @@ from openai import OpenAI
 app = Flask(__name__)
 
 # OpenAI client setup
-token = "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"
+token = "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"
 endpoint = "https://models.inference.ai.azure.com"
 model_name = "gpt-4o"
 
